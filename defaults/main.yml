@@ -80,7 +80,13 @@ prometheus_alert_rules_files:
 
 prometheus_static_targets_files:
   - prometheus/targets/*.yml
+  - prometheus/targets/*.yaml
   - prometheus/targets/*.json
+
+prometheus_static_targets_files_templates:
+  - prometheus/targets/*.yml.j2
+  - prometheus/targets/*.yaml.j2
+  - prometheus/targets/*.json.j2
 
 prometheus_alert_rules:
   - alert: InstanceDown

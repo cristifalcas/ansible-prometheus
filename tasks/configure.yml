@@ -59,3 +59,13 @@
     group: prometheus
     mode: 0640
   with_fileglob: "{{ prometheus_static_targets_files }}"
+
+- name: copy prometheus custom static targets templates
+  template:
+    src: "{{ item }}"
+    dest: "{{ prometheus_config_dir }}/file_sd/{{ (item | basename | splitext)[0] }}"
+    force: true
+    owner: root
+    group: prometheus
+    mode: 0640
+  with_fileglob: "{{ prometheus_static_targets_files_templates }}"
